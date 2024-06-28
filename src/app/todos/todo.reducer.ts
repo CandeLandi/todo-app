@@ -3,7 +3,7 @@ import { Todo } from './models/todo.model';
 import { deleteTodo, create, edit, toggle, toggleAll, cleanTodos } from './todo.actions';
 
 export const estadoInicial: Todo[] = [
-  new Todo('Cortar el pasto'),
+  new Todo('Ir al super'),
   new Todo('Leer'),
   new Todo('Salir a caminar'),
 ];
