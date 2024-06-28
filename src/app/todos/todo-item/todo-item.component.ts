@@ -14,25 +14,25 @@ export class TodoItemComponent implements OnInit {
   @Input() todo!: Todo;
   @ViewChild('inputFisico') txtInputFisico!: ElementRef;
 
-  chkCompletado!: FormControl;
+  chkCompleted!: FormControl;
   txtInput!: FormControl;
 
-  editando: boolean = false;
+  editing: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.chkCompletado = new FormControl(this.todo.completed);
+    this.chkCompleted = new FormControl(this.todo.completed);
     this.txtInput = new FormControl(this.todo.text, Validators.required);
 
-    this.chkCompletado.valueChanges.subscribe((valor) => {
+    this.chkCompleted.valueChanges.subscribe(valor => {
       console.log(valor);
       this.store.dispatch(actions.toggle({ id: this.todo.id }));
     });
   }
 
   editar() {
-    this.editando = true;
+    this.editing = true;
     this.txtInput.setValue( this.todo.text )
 
     setTimeout(() => {
@@ -41,13 +41,13 @@ export class TodoItemComponent implements OnInit {
   }
 
   terminarEdicion() {
-    this.editando = false;
+    this.editing = false;
 
     if( this.txtInput.invalid ) { return; }
     if( this.txtInput.value === this.todo.text )
 
     this.store.dispatch(
-      actions.editar({
+      actions.edit({
         id: this.todo.id,
         text: this.txtInput.value
       })
@@ -56,7 +56,7 @@ export class TodoItemComponent implements OnInit {
 
   borrar(){
 
-    this.store.dispatch( actions.borrar({ id: this.todo.id }))
+    this.store.dispatch( actions.deleteTodo({ id: this.todo.id }))
 
   }
 }

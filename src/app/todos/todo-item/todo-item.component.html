@@ -1,11 +1,11 @@
-<!-- 'editing' 'completed' -->
-<li [class.completed]="true" [class.editing]="editando">
+
+<li [class.completed]="todo.completed" [class.editing]="editing">
   <div class="view">
     <input
-      [formControl]="chkCompletado"
+      [formControl]="chkCompleted"
       class="toggle"
       type="checkbox"
-      checked
+
     />
 
     <label (dblclick)="editar()"> {{ todo.text }} </label>

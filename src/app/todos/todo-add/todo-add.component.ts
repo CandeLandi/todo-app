@@ -21,7 +21,7 @@ export class TodoAddComponent {
   agregar(){
     if (this.txtInput.invalid) { return ;}
 
-    this.store.dispatch( actions.crear({ text: this.txtInput.value }));
+    this.store.dispatch( actions.create({ text: this.txtInput.value }));
 
     this.txtInput.reset();
   }
