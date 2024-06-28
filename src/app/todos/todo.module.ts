@@ -20,6 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule
     ],
-  exports: [TodoPageComponent],
+  exports: [TodoPageComponent, TodoItemComponent],
 })
 export class TodoModule {}
